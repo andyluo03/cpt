@@ -27,19 +27,6 @@ int coins_combinations(vector<int> coins, int goal){
     return dp[dp.size()-1];
 }
 
-int min_coin(vector<int> coins, int goal){
-    vector<int> dp(goal+1, INT_MAX);
-    dp[0] = 0;
-    for(int a : coins){
-        for(int i = a; i < dp.size(); i++){
-            if(dp[i-a] == INT_MAX) continue;
-            dp[i] = min(dp[i-a] + 1, dp[i]);
-        }
-    }
-    return dp[dp.size()-1];
-}
-
-
 int main(){
     vector<int> coins = {1, 3, 10};
     cout << min_coin(coins, 103);
