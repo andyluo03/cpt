@@ -14,7 +14,31 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
+    int n, t; vector<int> a; cin >> n >> t;
+    for(int i = 0; i < n; i++){int t; cin >> t; a.push_back(t);}
 
+    int l = 0;
+    int csum = 0;
+    int ans = 0;
+
+    for(int i = 0; i < n; i++){
+        if(a[i] > t){
+            l = i+1;
+            csum = 0;
+            continue;
+        }
+
+        csum += a[i];
+
+        while(csum > t){
+            csum -= a[l];
+            l++;
+        }
+
+        ans = max(ans, (i-l+1));
+    }
+
+    cout << ans;
 }
 
 int main(){
