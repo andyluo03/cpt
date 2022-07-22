@@ -16,13 +16,28 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
-    
+    int n, m; cin >> n >> m;
+    vector<int> a;
+    forn(n){int tmp; cin >> tmp; a.push_back(tmp-1);}
+    vector<char> ans(m, 'B');
+
+    for(int i = 0; i < a.size(); i++){
+        if(ans[min((m-1-a[i]), a[i])] == 'A'){
+            ans[max((m-1-a[i]), a[i])] = 'A';
+        }else{
+            ans[min((m-1-a[i]), a[i])] = 'A';
+        }
+    }
+
+
+    for(char c : ans)
+        cout << c;
 }
 
 int main(){
     set_io
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int i = 1; i <= tc; i++){
         // cout << "Case #" << t << ": ";
         solution();

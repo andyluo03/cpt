@@ -16,7 +16,22 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
-    
+    ll n; cin >> n;
+
+    priority_queue<ll, vector<ll>, greater<ll>> pq;
+    ll health = 0;
+
+    forn(n){
+        ll tmp; cin >> tmp;
+        health += tmp;
+        pq.push(tmp);
+        while(health < 0){
+            health-=pq.top();
+            pq.pop();
+        }
+    }
+
+    cout << pq.size();
 }
 
 int main(){

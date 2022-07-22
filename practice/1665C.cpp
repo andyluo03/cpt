@@ -16,13 +16,33 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
+    int n; cin >> n;
     
+    vector<int> a(n);
+    
+    a[0] = 1;
+
+    int ans = 0;
+
+    forn(n){
+        int tmp; cin >> tmp;
+        a[tmp-1]++;
+    }
+
+    sort(a.begin(), a.end())
+
+
+
+
+
+
+    cout << ans;
 }
 
 int main(){
     set_io
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int i = 1; i <= tc; i++){
         // cout << "Case #" << t << ": ";
         solution();

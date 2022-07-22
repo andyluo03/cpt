@@ -22,7 +22,7 @@ void solution(){
 int main(){
     set_io
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int i = 1; i <= tc; i++){
         // cout << "Case #" << t << ": ";
         solution();

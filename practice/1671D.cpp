@@ -16,13 +16,45 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
-    
+    int n, x; cin >> n >> x;
+    vector<int> a(n);
+    forn(n) cin >> a[i];
+
+    int ans = 0;
+
+    int mn = a[0];
+    int mx = a[0];
+
+    for(int i = 1; i < a.size(); i++){
+        ans += abs(a[i] - a[i-1]);
+        mn = min(mn, a[i]);
+        mx = max(mx, a[i]);
+    }
+
+    if(mn == 1 && mx >= x){cout << ans; return;}
+
+    //greedily insert !
+
+    if(mx < x){
+        //left, right, middle mx
+        int t = min(x - a[0], x - a[n-1]);
+        ans += min(t, x-mx+1);
+    }
+
+    if(mn > 1){
+        //left, right, middle mn
+        int t = min(a[0] - 1, a[n-1] - 1);
+        ans += min(t, mn);
+    }
+
+    cout << ans;
+
 }
 
 int main(){
     set_io
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int i = 1; i <= tc; i++){
         // cout << "Case #" << t << ": ";
         solution();

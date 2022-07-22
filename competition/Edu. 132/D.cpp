@@ -16,7 +16,7 @@ const int MOD = int(1e9) + 7;
 const int MAXN = 1123456;
 
 void solution(){
-    
+   
 }
 
 int main(){
